@@ -1,8 +1,10 @@
+Bluesky
 CIDs
 Canonicalization
 Canonicalized
 DIDs
 Gozalishvili
+Holmgren
 IPLD
 IPLD-enabled
 Irakli
@@ -31,6 +33,7 @@ bytesprefix
 canonicalization
 canonicalize
 codec
+codecs
 conformant
 delimeters
 dholms
