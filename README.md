@@ -6,9 +6,9 @@
 
 ## Authors
 
-* [Daniel Holmgren](https://github.com/dholms), [Bluesky](https://blueskyweb.org/)
 * [Hugo Dias](https://github.com/hugomrdias), DAG House
 * [Irakli Gozalishvili](https://github.com/Gozala), DAG House
+* [Daniel Holmgren](https://github.com/dholms), [Bluesky](https://blueskyweb.org/)
 * [Brooklyn Zelenka](https://github.com/expede), [Fission](https://fission.codes)
 
 ## Language
@@ -21,12 +21,11 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 # 1 Motivation
 
 
-# 2 IPLD Schema
-# 3 JWT Canonicalization
+# 2 Canonicalization
 
-Per the core UCAN spec, all implementations MUST support JWT encoding. This provides a common representation that all implementations can understand. JWT canonicalization allows for an IPLD UCAN to be expressed as a JWT, retain the JWT signature scheme, and so on for compatibility, while retaining the ability to translate into other formats for storage or transmission among IPLD-enabled peers.
+Per the [core UCAN spec](https://github.com/ucan-wg/spec), all implementations MUST support JWT encoding. This provides a common representation that all implementations can understand. JWT canonicalization allows for alternate encodings to convert to and from the standard JWT format, retain the JWT signature scheme, and so on. This enables broad compatibility.
 
-To canonicalize an IPLD UCAN to JWT, the JSON segments MUST fulfill the following requirements:
+To canonicalize a UCAN, the JSON segments MUST fulfill the following requirements:
 
 1. All `can` fields MUST be lowercase
 2. All unused optional fields (such as `fct`) that are empty MUST be omitted
@@ -36,7 +35,7 @@ To canonicalize an IPLD UCAN to JWT, the JSON segments MUST fulfill the followin
 
 UCAN canonicalization is signalled by CID. If no canonicalization is used, the CID MUST use the [raw multicodec](https://github.com/multiformats/multicodec/blob/master/table.csv#L39). Canonicalized UCANs that wish to signal this encoding MUST use [any other CID codec](https://github.com/multiformats/multicodec/blob/master/table.csv), including but not limited to `dag-json` and `dag-cbor`.
 
-## 3.1 Non-IPLD Validator CID Handling
+## 2.1 Non-Canonical Validator CID Handling
 
 Validators that have not implemented this specification MUST be provided JWT-encoded UCANs. These validators will be unable to validate the CID in the proofs field. This is not strictly a problem in a semi-trusted scenario, as UCAN only depends on the existence (not the specific CID) of a valid proof for the capabilities being claimed. The security risk is for a malicious peer to provide very long but ultimately invalid proof chains as a denial-of-service vector. This is the case for any validator that does not check the CID hash upon receipt.
 
