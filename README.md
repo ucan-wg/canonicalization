@@ -39,6 +39,6 @@ UCAN canonicalization is signalled by CID. If no canonicalization is used, the C
 
 Validators that have not implemented this specification MUST be provided JWT-encoded UCANs. These validators will be unable to validate the CID in the proofs field. This is not strictly a problem in a semi-trusted scenario, as UCAN only depends on the existence (not the specific CID) of a valid proof for the capabilities being claimed. The security risk is for a malicious peer to provide very long but ultimately invalid proof chains as a denial-of-service vector. This is the case for any validator that does not check the CID hash upon receipt.
 
-# 4 Acknowledgments
+# 3 Acknowledgments
 
 Thanks to [Philipp Krüger](https://github.com/matheus23) for his feedback on canonicalization signalling.
