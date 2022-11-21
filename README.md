@@ -6,8 +6,8 @@
 
 ## Authors
     
-* [Hugo Dias](https://github.com/hugomrdias), DAG House
-* [Irakli Gozalishvili](https://github.com/Gozala), DAG House
+* [Hugo Dias](https://github.com/hugomrdias), [DAG House](https://dag.house/)
+* [Irakli Gozalishvili](https://github.com/Gozala), [DAG House](https://dag.house/)
 * [Daniel Holmgren](https://github.com/dholms), [Bluesky](https://blueskyweb.org/)
 * [Brooklyn Zelenka](https://github.com/expede), [Fission](https://fission.codes)
 
